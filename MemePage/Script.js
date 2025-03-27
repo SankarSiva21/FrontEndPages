@@ -49,23 +49,44 @@ function showQuote(){
 }
 
 
-let riddle = document.createElement('p');
-let result;
 function showRiddle() {
-    const node = randomData("riddles");
+  const randomRiddle = randomData("riddles"); // const question = randomRiddle.question; // const answer = randomRiddel.answer;
+  const {question, answer} = randomRiddle;
 
-    riddle.textContent = node.question;
-    result = node.answer;
+  const questionElem = document.createElement('p');
+  questionElem.setAttribute('id','riddle-question'); // solved the problem of alert msg when we cick revel answer after cliking joke or quote
+                                                     // To slove that we created the id for this p tag used to retrive only this not anyother tags
+  questionElem.textContent = question;
 
-    clearAll();
+  const answerElem = document.createElement('p');
+  answerElem.textContent = answer;
 
-    const parent = document.querySelector('.riddle-container');
-    parent.appendChild(riddle);
+  answerElem.setAttribute('id','riddle-answer');
+  answerElem.hidden = true;
+
+  const parent = document.querySelector(".riddle-container");
+
+  clearAll(); 
+  parent.appendChild(questionElem);
+  parent.appendChild(answerElem);
+
+
 }
 function revealAnswers() {
-  const ans = document.createElement('p');
-  ans.textContent = result;
-  riddle.insertAdjacentElement("afterend", ans);
+  const rapent = document.querySelector('.riddle-container');
+
+  const riddle = document.querySelector('#riddle-question');
+  const answer = document.querySelector('#riddle-answer');
+
+  if(riddle && answer.hidden){
+    answer.hidden = false;
+  }
+  else if(riddle){       // no need to check the answer.hidden because we all ready checked that case in abobe statement 
+    alert("The Answer is Already Revealed...!");
+  }
+  else {
+    alert("There is no Riddle to reveal Answer........!");
+  }
 }
 const memes = [
     "https://i.redd.it/a0v87gwzoge61.jpg",
