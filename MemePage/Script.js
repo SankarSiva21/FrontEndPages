@@ -1,22 +1,36 @@
-const pTags = document.querySelectorAll('p');
-const parent = document.querySelector(".main-content");
+
 function clearAll(){ 
-  location.reload();  
+  const meme = document.querySelector('.meme-container');
+  const joke = document.querySelector('.joke-container');
+  const quote = document.querySelector('.quote-container');
+  const riddle = document.querySelector('.riddle-container');
+
+  meme.innerHTML = '';
+  joke.innerHTML = '';
+  quote.innerHTML = '';
+  riddle.innerHTML = '';
+
+  meme.inner
 }
+
 function showMeme() {
-    clearAll();
     const meme = document.createElement('img');
     meme.src = randomData("memes");
 
-    const child = pTags.item(1);
-    parent.insertBefore(meme, child);
+    const parent = document.querySelector(".meme-container");
+
+    clearAll();
+    parent.appendChild(meme);
 }
+
 function showJoke(){
     const joke = document.createElement('p');
     joke.textContent = randomData("jokes");
 
-    const child = pTags.item(2);
-    parent.insertBefore(joke,child);
+    const parent = document.querySelector('.joke-container');
+
+    clearAll();
+    parent.appendChild(joke);
 }
 
 function showQuote(){
@@ -27,26 +41,31 @@ function showQuote(){
     quote.textContent = Node.quote;
     author.textContent = Node.author;
 
+    const parent = document.querySelector('.quote-container');
 
-
-    const child = pTags.item(3);
-    parent.insertBefore(quote,child);
-    parent.insertBefore(author,child);
+    clearAll();
+    parent.appendChild(quote);
+    parent.appendChild(author);
 }
-const ans = document.createElement('p');
+
+
+let riddle = document.createElement('p');
+let result;
 function showRiddle() {
     const node = randomData("riddles");
-    const riddle = document.createElement('p');
+
     riddle.textContent = node.question;
-    ans.textContent = node.answer;
+    result = node.answer;
 
-    const target = pTags.item(3);
+    clearAll();
 
-    target.insertAdjacentElement("afterend",riddle);
+    const parent = document.querySelector('.riddle-container');
+    parent.appendChild(riddle);
 }
 function revealAnswers() {
-    const target = pTa.item(4);
-    target.insertAdjacentElement("afterend",ans);
+  const ans = document.createElement('p');
+  ans.textContent = result;
+  riddle.insertAdjacentElement("afterend", ans);
 }
 const memes = [
     "https://i.redd.it/a0v87gwzoge61.jpg",
