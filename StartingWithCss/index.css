@@ -1,0 +1,12 @@
+body { 
+    color: blue;
+}
+.main-content{
+    color: tomato
+}
+.main-content li{
+    color:violet;
+}
+#list-item1 > li > p{
+    color:darkgreen
+}
