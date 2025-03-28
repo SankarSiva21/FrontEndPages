@@ -10,3 +10,7 @@ body {
 #list-item1 > li > p{
     color:darkgreen
 }
+
+ul + p{
+    color: crimson;
+}
