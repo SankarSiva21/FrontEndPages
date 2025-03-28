@@ -9,8 +9,6 @@ function clearAll(){
   joke.innerHTML = '';
   quote.innerHTML = '';
   riddle.innerHTML = '';
-
-  meme.inner
 }
 
 function showMeme() {
